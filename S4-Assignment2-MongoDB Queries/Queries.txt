@@ -1,0 +1,27 @@
+1 - db.moviesData.insertOne({title: "The Matrix", year: 1999, director: "Lana Wachowski", genre:["Action", "Sci-Fi"]})
+
+2 - db.moviesData.insertMany([
+	{title: "Avatar", year: 2009, director: "James Cameron", genre: ["Action", "Adventure", "Fantasy"]}, 
+	{title: "The Avengers", year: 2012, director: "Joss Whedon", genre: ["Action", "Adventure", "Sci-Fi"]}
+    ])
+
+3 - db.moviesData.findOne({title: "The Matrix"})
+
+4 - db.moviesData.find({ 
+	$and: [
+	{year: {$gte: 2000}}, 
+	{year: {$lte: 2009}}
+	] 
+    })
+
+5 - db.moviesData.updateOne({title: "The Matrix"}, {$push: {genre: "Drama"}})
+
+6 - db.moviesData.updateMany({year: {$lt: 2000}}, {$inc: {year: 1}})
+
+7 - db.moviesData.deleteOne({title: "Avatar"})
+
+8 - db.moviesData.countDocuments({})
+
+9 - db.moviesData.deleteMany({genre: {$in: ["Drama"]}});
+
+10- db.moviesData.find({}, {title: 1, director: 1, _id: 0})
